@@ -6,7 +6,6 @@
 }
 
 body {
-    /* Rich full-width ambient background to completely fill the sides */
     background-color: #120e0a;
     background-image: 
         radial-gradient(circle at 20% 10%, rgba(180, 130, 60, 0.08) 0%, transparent 40%),
@@ -385,8 +384,6 @@ body {
 .hit {
     color: goldenrod;
 }
-
-/* EXACT MEDIA QUERIES PRESERVED */
 @media(max-width: 1024px) {
     .navbar {
         gap: 50px;
