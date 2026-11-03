@@ -3,161 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spice Villa</title>
-    <link rel="stylesheet" href="main.css">
+    <title>SÅLVE - Food that remembers you stays</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Italianno&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="dining.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar"><h1 class="hope">§pice Villa</h1>
-            <div class="nav-link">
-            <a href="#Home">Home</a>
-            <a href="#Menu">Menu</a>
-            <a href="#Reservation">Reservation</a>
-            <a href="#feedback">Feedback</a>
-            <a href="#Contact">Contact</a>
+
+
+    <header class="navbar">
+        <div class="logo">SÅLVE</div>
+        <nav class="nav-links">
+            <nav class="nav-links">
+    <a href="#about">ABOUT</a>
+    <a href="#menu" onclick="openFullMenu(event)">MENU</a>
+    <a href="#reserve" onclick="openReservationModal(event)">RESERVE</a>
+    <a href="#contact">CONTACT</a>
+    <div class="cart-icon" onclick="toggleCart()">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+</nav>
             </div>
         </nav>
     </header>
-    <section id="home">
-        <div class="dabba1">
-        <b><h1>Welcome to spice villa!</h1><br></b>
-        <h2><strong>Delicious food made with fresh ingredients and love!</strong> </h2>
+
+
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="script-heading">Food that remembers<br>you stays</h1>
+            <p class="hero-subtitle">A soulful table for memories, slow meals, and quiet moments.</p>
+            <p class="hero-description">Here, every dish is cooked to be remembered — by you.<br>Comforting, seasonal, rooted in love.</p>
+            <div class="button-group">
+                <a href="#reserve" class="btn btn-terracotta">Reserve a Table</a>
+                <a href="#menu" class="btn btn-outline">View the Menu</a>
+            </div>
         </div>
     </section>
-    <hr>
-    <section id="menu">
-        <h1 class="hero">Our special menu!</h1><br>
+
+
+    <section class="philosophy-section" id="about">
+        <h2 class="script-heading">Rooted in warmth • Crafted with care</h2>
+        <p class="philosophy-text">
+            We believe food is memory. It holds the warmth of home, the echo of laughter, the quiet of shared silence.<br>
+            At SÅLVE, we cook with intention — ingredients sourced locally, slow-cooked, served with heart.<br>
+            Every plate is meant to stay with you long after the last bite.
+        </p>
+    </section>
+    <section>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🕯️</div>
+                <h3>Seasonal & Soulful</h3>
+                <p>Menus shift with the season.<br>Always fresh, always thoughtful.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏺</div>
+                <h3>Gather & Stay</h3>
+                <p>A space made for lingering.<br>Conversation, connection, time.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤎</div>
+                <h3>Made to Remember</h3>
+                <p>Flavours that settle,<br>comfort that remains.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="signature-section" id="menu">
+        <h2 class="script-heading dark-text">Signature</h2>
+        <div class="signature-grid">
+            <section>
     
-<div class="grid-container">
-    <div class="dabba"><h1>Starter</h1>
-        <p>Spring rolls<br>White sauce pasta<br>Dosa</p>
-    </div>
-    <div class="dabba"><h1>Main course</h1>
-        <p>Pav bhaji<br>Chilli potato<br>Veg Biryani</p>
-    </div>
-    <div class="dabba"><h1>Desserts</h1>
-    <p>Brownie<br>Chocolate Pastry<br>Ice-cream</p>
-    </div>
-    <div class="dabba"><h1>Drinks</h1>
-    <p>Cold coffee<br>Virgin Mojito<br>Chocolate-Coffee</p>
-    </div>
-</div>
-    </section>
-    <section id="categories-section">
-        <h1 class="snow">categories</h1>
-        <div class="category-grid">
-            <div class="cat-box"></div>
-        </div>
-    </section>
-    <hr>
-<section>
-        <div class="offer">
-        <h1>Today's special offer</h1>
-        <p><strong>Weekend combo:</strong></p>
-        <h2>Get 20% off on all family dinner above ₹999</h2>
-        </div>
-    </section>
-    <hr>
-    <section id="reservation">
-        <h2 class="mist">Reserve a Table</h2>
-        <form>
-            <div class="form-group">
-            <label for="name">Name:</label><br>
-            <input type="text" placeholder="🙍enter your name" required><br><br>
-            </div>
-            <div class="form-group">
-            <label for="contact">Contact no.</label><br>
-            <input type="tel" placeholder="📞enter your number" required><br><br>
-            </div>
-            <div class="form-group">
-            <label for="email"> Address</label><br>
-            <input type="email" placeholder="✉️email"><br><br>
-            </div>
-            <div class="form-group">
-            <label for="datetime-local">Date</label><br>
-            <input type="datetime-local" placeholder="datetime-local"><br><br>
-            </div>
-            <div class="form-group">
-            <label for="guests">Number of guests</label><br>
-            <input type="number" min="1" max="10"><br><br>
-        </div>
-            <button id="submit">Book Table</button>
-        </form>
-    </section>
-    <hr>
-    <section id="feedback">
-        <h2>Customer feedback</h2>
-    <form>
-        <div class="form-group">
-    <label for="name">Your name</label><br>
-    <input type="text" placeholder="your name"><br><br>
-    <label>Rating us⭐⭐:</label><br>
-    <div class="radio-group">
-   <label> <input type="radio" name="rate" value="5">excellent🤩</label>
- <label>  <input type="radio" name="rate" value="4">good🤗</label>
-   <label> <input type="radio" name="rate" value="3">average🙂<br><br></label>
-   
-        </div>
-        </div>
-        <div class="form-group">
-           <label>your review:</label>
-    <textarea id="review">Write your experience</textarea><br><br>
-        </div>
-        
-<button id="submit1">Submit Feedback</button>
- 
-</form>
-    </section>
-    <hr>
-        <div class="footer">
-            <footer class="footer">
-                <div class="footer-content">
-                    <div class="footer-box">
-                        <h1>◉_◉ <span class="hit">spice villa</span></h2>
-                        <h1>Enjoy your day with the taste</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur<br> adipisicing elit. Quod, optio quam. Dicta sint nostrum harum quibusdam laborum unde doloremque <br>minus reiciendis delectus, odit ullam id. Perferendis voluptatibus quasi consequatur vitae.</p>
-                    </div>
-                    <div class="footer-box">
-                        <h3>Menu</h3>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                             <li><a href="#">Reservation</a></li>
-                              <li><a href="#">Contact</a></li>
-                               <li><a href="#">Feedback</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-box">
-                        <h3>Resources</h3>
-                        <ul>
-                            <li><a href="#">Sign in</a></li>
-                             <li><a href="#">Sign up</a></li>
-                              <li><a href="#">Tags</a></li>
-                               <li><a href="#">Authors</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-box">
-                        <h3>social-media </h3>
-                        <ul>
-                            <li>
-                                <a href="https://www.instagram.com/akshita78942" target="blank" style="color:white;margin:0 10px;font-size:18px;text-decoration:none;">Instagram</a>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="instagram" style="width:20px;height:20px;vertical-align:middle;">
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com" target="blank" style="color:white;margin:0 10px;font-size:18px;text-decoration:none;">facebook</a>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="facebook" style="width:20px;height:20px;vertical-align:middle;">
-                            </li>
-                            <li>
-                                <a href="https://www.twitter.com" target="blank" style="color:white;margin:0 10px;font-size:18px;text-decoration:none;">twitter</a>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="twitter" style="width:20px;height:20px;vertical-align:middle;">
-                            </li>
-                        </ul>
-                    </div>
+            <div class="dish-card" onclick="openDishModal('Braised Lamb', 32, 'Slow braised lamb, rosemary, garlic, slow-cooked 12hrs, lemon gremolata', 'lamb.png')">
+                <div class="dish-image">
+                    <img src="https://www.firsthomelovelife.com/wp-content/uploads/2026/02/old-fashioned-oxtail-soup-birdseye-handmade-bowl-marble-counter.jpg-768x1152.png">
                 </div>
-           
-            <div class="footer-bottom">
-                <p>&copy;2026 Spice Villa All right reserved</p>
+                <div class="dish-details">
+                    <h3>Braised Lamb • 32</h3>
+                    <p>rosemary, garlic, slow-cooked 12hrs, lemon</p>
+                </div>
+            </section>
+
+            <section>
+
+        
+            <div class="dish-card" onclick="openDishModal('Tomato & Burrata', 18, 'Heirloom tomatoes, chili oil, grilled sourdough', 'burrata.png')">
+                <div class="dish-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgkZWZ7w4IoHXvlqmHVsCs9t4Ojrfjg0uOsKf1quVXVQ&s=10">
+                </div>
+                <div class="dish-details">
+                    <h3>Tomato & Burrata • 18</h3>
+                    <p>heirloom tomatoes, chili oil, grilled sourdough</p>
+                </div>
             </div>
-        </footer>
+            </section>
+            <section>
+
+            <div class="dish-card" onclick="openDishModal('Olive Oil Cake', 14, 'Dark chocolate, sea salt, whipped mascarpone', 'cake.png')">
+                <div class="dish-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVSPO3xOKLWuFkp4uASpVENBXTzglwqfkH1hFl3YQUSA&s=10"> alt="Olive Oil Cake">
+                </div>
+                <div class="dish-details">
+                    <h3>Olive Oil Cake • 14</h3>
+                    <p>dark chocolate, sea salt, whipped mascarpone</p>
+                </div>
+            </div>
+    </section>
+    </section>
+
+    <div class="modal-overlay" id="dishModal">
+        <div class="dish-modal-content">
+            <button class="close-btn" onclick="closeDishModal()">&times;</button>
+            <h2 class="modal-title" id="modalDishTitle">Braised Lamb • 32</h2>
+            <div class="modal-img-container">
+                <img id="modalDishImg" src="lamb.png" alt="Dish Image">
+            </div>
+            <p class="modal-desc" id="modalDishDesc">Slow braised lamb, rosemary, garlic, slow-cooked 12hrs, lemon gremolata</p>
+            
+            <div class="quantity-control">
+                <span>Quantity</span>
+                <div class="qty-btn-group">
+                    <button onclick="changeQty(-1)">-</button>
+                    <span id="itemQty">1</span>
+                    <button onclick="changeQty(1)">+</button>
+                </div>
+            </div>
+
+            <div class="total-price">Total: <span id="totalPrice">32</span> €</div>
+            <button class="btn btn-terracotta btn-block" onclick="addToCart()">Add to Cart</button>
+            <p class="modal-footer-note">Made fresh today — Allergens: dairy, herbs</p>
         </div>
+    </div>
+
+
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2 class="script-heading">Your Cart</h2>
+            <button class="close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        <p class="cart-item-count" id="cartItemCount">1 item</p>
+
+        <div class="cart-items-list" id="cartItemsList">
+            <div class="cart-item">
+                <img src="lamb.png" alt="Braised Lamb">
+                <div class="cart-item-details">
+                    <h4>Braised Lamb • 32</h4>
+                    <p id="cartItemQtyPrice">Qty: 1 • 32 €</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <div class="summary-row"><span>Subtotal</span> <span id="subtotalPrice">32 €</span></div>
+            <div class="summary-row"><span>Delivery/Reservation</span> <span>—</span></div>
+            <div class="summary-row total-row"><span>Total</span> <span id="cartTotalPrice">32 €</span></div>
+        </div>
+
+        <button class="btn btn-terracotta btn-block">Checkout</button>
+        <p class="cart-note">Pickup at restaurant • Ready in 20-30 min</p>
+        <p class="cart-heart">We'll prepare it with care ❤️</p>
+    </div>
+    <!-- Table Reservation Modal -->
+    <div class="modal-overlay" id="reservationModal" style="display: none;">
+        <div class="dish-modal-content">
+            <button class="close-btn" onclick="closeReservationModal()">&times;</button>
+            <h2 class="modal-title">Reserve a Table</h2>
+            <form onsubmit="submitReservation(event)" style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+                <input type="text" placeholder="Aapka Naam" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                <input type="date" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                <input type="time" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                <input type="number" placeholder="Kitne log hain? (Guests)" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                <button type="submit" class="btn btn-terracotta btn-block">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    
+
+
+    <footer class="footer-section" id="contact">
+        <div class="footer-overlay"></div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4 class="script-heading">Open Hours</h4>
+                <p>Tue–Sat: 5pm – 11pm</p>
+                <p>Sunday: 5pm – 10pm</p>
+                <p class="sub-info">Closed Monday</p>
+            </div>
+            <div class="footer-column">
+                <h4 class="script-heading">Visit</h4>
+                <p>33 Rue des Lumières</p>
+                <p>Paris 75011, France</p>
+                <p class="sub-info">Valet parking available</p>
+            </div>
+            <div class="footer-column">
+                <h4 class="script-heading">Contact</h4>
+                <p>+33 1 42 88 77 66</p>
+                <p>hello@salve.restaurant</p>
+                <p class="sub-info">Reservations recommended</p>
+            </div>
+            <div class="footer-column">
+                <h4 class="script-heading">Follow</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <a href="#reserve" class="btn btn-terracotta btn-sm">Reserve a Table</a>
+            </div>
+        </div>
+
+        
+    
+        <div class="feedback-badge">
+            💬 Feedback? We're listening
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 SÅLVE — Food that remembers you stays • Privacy Policy • Terms • Instagram</p>
+        </div>
+    </footer>
+    <!-- Table Reservation Modal -->
+    <div class="modal-overlay" id="reservationModal" style="display: none;">
+        <div class="dish-modal-content">
+            <button class="close-btn" onclick="closeReservationModal()">&times;</button>
+            <h2 class="modal-title">Reserve a Table</h2>
+            <form onsubmit="submitReservation(event)" style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+                <input type="text" placeholder="Aapka Naam" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                <input type="date" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                <input type="time" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                <input type="number" placeholder="Kitne log hain? (Guests)" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                <button type="submit" class="btn btn-terracotta btn-block">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="modal-overlay" id="feedbackModal" style="display: none;">
+        <div class="dish-modal-content">
+            <button class="close-btn" onclick="closeFeedbackModal()">&times;</button>
+            <h2 class="modal-title">Your Feedback</h2>
+            <form onsubmit="submitFeedback(event)" style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+                <input type="text" placeholder="Aapka Naam" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                <textarea placeholder="Apna experience share karein..." rows="4" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+                <button type="submit" class="btn btn-terracotta btn-block">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
+
+    
