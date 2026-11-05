@@ -3,261 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SÅLVE - Food that remembers you stays</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Italianno&display=swap" rel="stylesheet">
+    <title>The Dinning Table - Good Food, Better Company</title>
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <!-- CSS Link -->
     <link rel="stylesheet" href="dining.css">
 </head>
 <body>
 
-
-    <header class="navbar">
-        <div class="logo">SÅLVE</div>
-        <nav class="nav-links">
-            <nav class="nav-links">
-    <a href="#about">ABOUT</a>
-    <a href="#menu" onclick="openFullMenu(event)">MENU</a>
-    <a href="#reserve" onclick="openReservationModal(event)">RESERVE</a>
-    <a href="#contact">CONTACT</a>
-    <div class="cart-icon" onclick="toggleCart()">
-        <i class="fa-solid fa-basket-shopping"></i>
-        <span class="cart-count" id="cartCount">0</span>
-    </div>
-</nav>
-            </div>
-        </nav>
+    <!-- Header & Navigation Bar -->
+    <header>
+        <div class="logo" onclick="switchSection('home')">
+            <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+            <div class="logo-text">The <span>Dinning</span> Table</div>
+        </div>
+        <div class="menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a class="nav-item active" onclick="switchSection('home')">Home</a></li>
+            <li><a class="nav-item" onclick="switchSection('menu')">Menu</a></li>
+            <li><a class="nav-item" onclick="switchSection('cart')">Cart <span id="cartBadge" class="badge">0</span></a></li>
+            <li><a class="nav-item" onclick="switchSection('about')">About</a></li>
+            <li><a class="nav-item" onclick="switchSection('gallery')">Gallery</a></li>
+            <li><a class="nav-item" onclick="switchSection('reservations')">Reservations</a></li>
+            <li><a class="nav-item" onclick="switchSection('contact')">Contact</a></li>
+        </ul>
+        <div class="header-right">
+            <button class="reserve-btn" onclick="switchSection('reservations')"><i class="far fa-calendar-alt"></i> Reserve a Table</button>
+        </div>
     </header>
 
+    <!-- Main Container -->
+    <main class="main-container">
 
-    <section class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="script-heading">Food that remembers<br>you stays</h1>
-            <p class="hero-subtitle">A soulful table for memories, slow meals, and quiet moments.</p>
-            <p class="hero-description">Here, every dish is cooked to be remembered — by you.<br>Comforting, seasonal, rooted in love.</p>
-            <div class="button-group">
-                <a href="#reserve" class="btn btn-terracotta">Reserve a Table</a>
-                <a href="#menu" class="btn btn-outline">View the Menu</a>
-            </div>
-        </div>
-    </section>
+        <!-- 1. HOME SECTION -->
+        <section id="home" class="section-page active">
+            <div class="blob blob-yellow"></div>
+            <div class="blob blob-pink"></div>
+            <div class="blob blob-blue"></div>
 
+            <div class="content-wrapper">
+                <div class="hero-layout">
+                    <div class="hero-left">
+                        <span class="tag-line">The</span>
+                        <h1 class="hero-title">Dinning <br><span class="highlight-pink">Table</span> <span class="sparkle">✨</span></h1>
+                        <p class="hero-subtext">Good Food • Better Company</p>
+                        <p class="hero-desc">Delicious food, warm ambiance and a table for every story.</p>
 
-    <section class="philosophy-section" id="about">
-        <h2 class="script-heading">Rooted in warmth • Crafted with care</h2>
-        <p class="philosophy-text">
-            We believe food is memory. It holds the warmth of home, the echo of laughter, the quiet of shared silence.<br>
-            At SÅLVE, we cook with intention — ingredients sourced locally, slow-cooked, served with heart.<br>
-            Every plate is meant to stay with you long after the last bite.
-        </p>
-    </section>
-    <section>
+                        <div class="hero-actions">
+                            <button class="btn-dark" onclick="switchSection('menu')">View Our Menu <i class="fas fa-arrow-right"></i></button>
+                            <button class="btn-pink-outline" onclick="switchSection('reservations')"><i class="far fa-calendar"></i> Reserve a Table</button>
+                        </div>
+                    </div>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🕯️</div>
-                <h3>Seasonal & Soulful</h3>
-                <p>Menus shift with the season.<br>Always fresh, always thoughtful.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏺</div>
-                <h3>Gather & Stay</h3>
-                <p>A space made for lingering.<br>Conversation, connection, time.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🤎</div>
-                <h3>Made to Remember</h3>
-                <p>Flavours that settle,<br>comfort that remains.</p>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="signature-section" id="menu">
-        <h2 class="script-heading dark-text">Signature</h2>
-        <div class="signature-grid">
-            <section>
-    
-            <div class="dish-card" onclick="openDishModal('Braised Lamb', 32, 'Slow braised lamb, rosemary, garlic, slow-cooked 12hrs, lemon gremolata', 'lamb.png')">
-                <div class="dish-image">
-                    <img src="https://www.firsthomelovelife.com/wp-content/uploads/2026/02/old-fashioned-oxtail-soup-birdseye-handmade-bowl-marble-counter.jpg-768x1152.png">
+                    <div class="hero-right">
+                        <div class="hero-image-frame">
+                            <img src="https://media.gettyimages.com/id/159628291/photo/restaurant-table-with-lavender-and-candlelight.jpg?s=612x612&w=0&k=20&c=sn1rejBNUPvO3-mISKbwh-qVSi7sY4v8ue2-Rjpok7w=" alt="The Dinning Table Restaurant Interior">
+                            <div class="floating-badge">
+                                <span>Good Food<br>Brighter Days</span> ❤️
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="dish-details">
-                    <h3>Braised Lamb • 32</h3>
-                    <p>rosemary, garlic, slow-cooked 12hrs, lemon</p>
+
+                <!-- 4 Key Feature Cards Strip -->
+                <div class="feature-strip">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                        <div>
+                            <h4>Fresh Ingredients</h4>
+                            <p>Locally sourced, always fresh</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-user-chef"></i></div>
+                        <div>
+                            <h4>Expert Chefs</h4>
+                            <p>Crafting irresistible flavors</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-glass-cheers"></i></div>
+                        <div>
+                            <h4>Cozy Ambiance</h4>
+                            <p>Perfect for every occasion</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-users"></i></div>
+                        <div>
+                            <h4>Great Company</h4>
+                            <p>Because good food is better together</p>
+                        </div>
+                    </div>
                 </div>
-            </section>
 
-            <section>
-
-        
-            <div class="dish-card" onclick="openDishModal('Tomato & Burrata', 18, 'Heirloom tomatoes, chili oil, grilled sourdough', 'burrata.png')">
-                <div class="dish-image">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgkZWZ7w4IoHXvlqmHVsCs9t4Ojrfjg0uOsKf1quVXVQ&s=10">
-                </div>
-                <div class="dish-details">
-                    <h3>Tomato & Burrata • 18</h3>
-                    <p>heirloom tomatoes, chili oil, grilled sourdough</p>
-                </div>
-            </div>
-            </section>
-            <section>
-
-            <div class="dish-card" onclick="openDishModal('Olive Oil Cake', 14, 'Dark chocolate, sea salt, whipped mascarpone', 'cake.png')">
-                <div class="dish-image">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVSPO3xOKLWuFkp4uASpVENBXTzglwqfkH1hFl3YQUSA&s=10"> alt="Olive Oil Cake">
-                </div>
-                <div class="dish-details">
-                    <h3>Olive Oil Cake • 14</h3>
-                    <p>dark chocolate, sea salt, whipped mascarpone</p>
-                </div>
-            </div>
-    </section>
-    </section>
-
-    <div class="modal-overlay" id="dishModal">
-        <div class="dish-modal-content">
-            <button class="close-btn" onclick="closeDishModal()">&times;</button>
-            <h2 class="modal-title" id="modalDishTitle">Braised Lamb • 32</h2>
-            <div class="modal-img-container">
-                <img id="modalDishImg" src="lamb.png" alt="Dish Image">
-            </div>
-            <p class="modal-desc" id="modalDishDesc">Slow braised lamb, rosemary, garlic, slow-cooked 12hrs, lemon gremolata</p>
-            
-            <div class="quantity-control">
-                <span>Quantity</span>
-                <div class="qty-btn-group">
-                    <button onclick="changeQty(-1)">-</button>
-                    <span id="itemQty">1</span>
-                    <button onclick="changeQty(1)">+</button>
-                </div>
-            </div>
-
-            <div class="total-price">Total: <span id="totalPrice">32</span> €</div>
-            <button class="btn btn-terracotta btn-block" onclick="addToCart()">Add to Cart</button>
-            <p class="modal-footer-note">Made fresh today — Allergens: dairy, herbs</p>
-        </div>
-    </div>
-
-
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            <h2 class="script-heading">Your Cart</h2>
-            <button class="close-btn" onclick="toggleCart()">&times;</button>
-        </div>
-        <p class="cart-item-count" id="cartItemCount">1 item</p>
-
-        <div class="cart-items-list" id="cartItemsList">
-            <div class="cart-item">
-                <img src="lamb.png" alt="Braised Lamb">
-                <div class="cart-item-details">
-                    <h4>Braised Lamb • 32</h4>
-                    <p id="cartItemQtyPrice">Qty: 1 • 32 €</p>
+                <!-- Category Preview Cards Grid -->
+                <div class="preview-section">
+                    <div class="text-center">
+                        <span class="small-title">OUR MENU</span>
+                        <h2 class="section-heading">A Taste for <span class="highlight-pink">Every Mood</span></h2>
+                    </div>
+                    <div class="category-grid">
+                        <div class="cat-card" onclick="switchSection('menu')">
+                            <img src="https://media.gettyimages.com/id/1277836389/photo/fine-dining-restaurant-interior.jpg?s=612x612&w=0&k=20&c=76_VYqLNbknLFqnoCCnFmaWTi9WF0_MUwMVakDRKa0Q=" alt="Appetizers">
+                            <div class="cat-content">
+                                <h3>Appetizers <i class="fas fa-arrow-right"></i></h3>
+                                <p>Start your meal with something special.</p>
+                            </div>
+                        </div>
+                        <div class="cat-card" onclick="switchSection('menu')">
+                            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=500&q=80" alt="Main Course">
+                            <div class="cat-content">
+                                <h3>Main Course <i class="fas fa-arrow-right"></i></h3>
+                                <p>Hearty dishes made to satisfy.</p>
+                            </div>
+                        </div>
+                        <div class="cat-card" onclick="switchSection('menu')">
+                            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80" alt="Desserts">
+                            <div class="cat-content">
+                                <h3>Desserts <i class="fas fa-arrow-right"></i></h3>
+                                <p>Sweet endings to perfect moments.</p>
+                            </div>
+                        </div>
+                        <div class="cat-card" onclick="switchSection('menu')">
+                            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=80" alt="Beverages">
+                            <div class="cat-content">
+                                <h3>Beverages <i class="fas fa-arrow-right"></i></h3>
+                                <p>Refreshing sips for every mood.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="cart-summary">
-            <div class="summary-row"><span>Subtotal</span> <span id="subtotalPrice">32 €</span></div>
-            <div class="summary-row"><span>Delivery/Reservation</span> <span>—</span></div>
-            <div class="summary-row total-row"><span>Total</span> <span id="cartTotalPrice">32 €</span></div>
-        </div>
+        <!-- 2. MENU SECTION -->
+        <section id="menu" class="section-page page-bg-menu">
+            <div class="content-wrapper">
+                <div class="text-center">
+                    <span class="small-title">OUR MENU</span>
+                    <h2 class="section-heading">A Taste for <span class="highlight-pink">Every Mood</span></h2>
+                </div>
 
-        <button class="btn btn-terracotta btn-block">Checkout</button>
-        <p class="cart-note">Pickup at restaurant • Ready in 20-30 min</p>
-        <p class="cart-heart">We'll prepare it with care ❤️</p>
-    </div>
-    <!-- Table Reservation Modal -->
-    <div class="modal-overlay" id="reservationModal" style="display: none;">
-        <div class="dish-modal-content">
-            <button class="close-btn" onclick="closeReservationModal()">&times;</button>
-            <h2 class="modal-title">Reserve a Table</h2>
-            <form onsubmit="submitReservation(event)" style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
-                <input type="text" placeholder="Aapka Naam" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-                <input type="date" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-                <input type="time" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-                <input type="number" placeholder="Kitne log hain? (Guests)" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-                <button type="submit" class="btn btn-terracotta btn-block">Confirm Booking</button>
-            </form>
-        </div>
-    </div>
+                <div class="category-filter">
+                    <button class="filter-btn active" onclick="filterMenu('all')">All</button>
+                    <button class="filter-btn" onclick="filterMenu('appetizers')">Appetizers</button>
+                    <button class="filter-btn" onclick="filterMenu('mains')">Main Course</button>
+                    <button class="filter-btn" onclick="filterMenu('desserts')">Desserts</button>
+                    <button class="filter-btn" onclick="filterMenu('beverages')">Beverages</button>
+                </div>
 
-    
+                <div class="food-grid" id="foodGrid"></div>
+            </div>
+        </section>
 
+        <!-- 3. CART SECTION -->
+        <section id="cart" class="section-page page-bg-cart">
+            <div class="content-wrapper">
+                <div class="text-center">
+                    <span class="small-title">YOUR SELECTION</span>
+                    <h2 class="section-heading">Your Order <span class="highlight-pink">Cart 🛒</span></h2>
+                </div>
+                <div class="white-card" style="max-width: 650px; margin: 0 auto;">
+                    <div id="cartItemsList">
+                        <p style="text-align: center; color: #777;">Your cart is empty right now!</p>
+                    </div>
+                    <div id="cartTotalContainer" style="margin-top: 20px; text-align: right; display: none; border-top: 2px solid #f0f0f0; padding-top: 15px;">
+                        <h3>Total Amount: <span id="cartTotalPrice" style="color: #ff3366;">$0.00</span></h3>
+                        <button class="btn-pink" style="margin-top: 15px; border:none; cursor:pointer;" onclick="checkoutCart()">Proceed to Checkout 🚀</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer class="footer-section" id="contact">
-        <div class="footer-overlay"></div>
+        <!-- 4. ABOUT SECTION -->
+        <section id="about" class="section-page">
+            <div class="blob blob-yellow"></div>
+            <div class="blob blob-pink"></div>
+            <div class="blob blob-blue"></div>
+            <div class="content-wrapper">
+                <div class="about-split-layout">
+                    <div class="about-img-hero">
+                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="About Us Grand Dining">
+                    </div>
+                    <div class="about-text-box">
+                        <span class="small-title">ABOUT US</span>
+                        <h2 class="section-heading">More Than <span class="highlight-pink">Just a Meal</span></h2>
+                        <p>At The Dinning Table, we believe food brings people closer. Our passion is to serve delicious meals made from the freshest ingredients, in a warm and welcoming space where every guest feels at home.</p>
+                        
+                        <div class="about-highlights">
+                            <div><i class="far fa-heart"></i> <strong>Quality Food</strong><br><small>Made with care</small></div>
+                            <div><i class="far fa-smile"></i> <strong>Memorable Moments</strong><br><small>With family & friends</small></div>
+                            <div><i class="fas fa-globe-asia"></i> <strong>A Place for Everyone</strong><br><small>From casual to special</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. GALLERY SECTION -->
+        <section id="gallery" class="section-page">
+            <div class="blob blob-yellow"></div>
+            <div class="blob blob-pink"></div>
+            <div class=" blob blob-blue"></div>
+            <div class="content-wrapper">
+                <div class="text-center">
+                    <span class="small-title">GALLERY</span>
+                    <h2 class="section-heading">Moments at <span class="highlight-pink">The Dinning Table</span></h2>
+                </div>
+                <div class="gallery-grid">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80" alt="Gallery 1">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" alt="Gallery 2">
+                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=80" alt="Gallery 3">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80" alt="Gallery 4">
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. RESERVATIONS SECTION -->
+        <section id="reservations" class="section-page page-bg-res">
+            <div class="content-wrapper">
+                <div class="res-card-layout">
+                    <div class="res-info-left">
+                        <span class="small-title">RESERVATIONS</span>
+                        <h2 class="section-heading">Book <span class="highlight-pink">Your Table</span></h2>
+                        <p>Whether it's a casual lunch, a family dinner or a special celebration, we're ready to welcome you.</p>
+                        
+                        <div class="res-steps">
+                            <div><i class="far fa-calendar-alt"></i> Select Date<br><small>Pick your preferred day</small></div>
+                            <div><i class="fas fa-user-friends"></i> Choose Guests<br><small>Let us know the count</small></div>
+                            <div><i class="far fa-clock"></i> Enjoy Your Meal<br><small>We'll take care of the rest</small></div>
+                        </div>
+                    </div>
+
+                    <div class="res-form-right">
+                        <form id="reservationForm" onsubmit="handleReservation(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Time</label>
+                                    <input type="time" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Guests</label>
+                                <select class="form-control">
+                                    <option>1 person</option>
+                                    <option selected>2 people</option>
+                                    <option>4 people</option>
+                                    <option>6+ people</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-pink-block">Reserve a Table <i class="fas fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CONTACT SECTION -->
+        <section id="contact" class="section-page page-bg-contact">
+            <div class="blob blob-yellow"></div>
+            <div class="blob blob-pink"></div>
+            <div class="blob blob-blue"></div>
+            <div class="content-wrapper">
+                <div class="white-card contact-card-wrapper">
+                    <div class="text-center">
+                        <span class="small-title">CONTACT US</span>
+                        <h2 class="section-heading">Get In <span class="highlight-pink">Touch</span></h2>
+                    </div>
+                    <form id="contactForm" onsubmit="handleContact(event)">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Message</label>
+                            <textarea class="form-control" rows="4" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-pink-block">Send Message 🚀</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
         <div class="footer-container">
-            <div class="footer-column">
-                <h4 class="script-heading">Open Hours</h4>
-                <p>Tue–Sat: 5pm – 11pm</p>
-                <p>Sunday: 5pm – 10pm</p>
-                <p class="sub-info">Closed Monday</p>
-            </div>
-            <div class="footer-column">
-                <h4 class="script-heading">Visit</h4>
-                <p>33 Rue des Lumières</p>
-                <p>Paris 75011, France</p>
-                <p class="sub-info">Valet parking available</p>
-            </div>
-            <div class="footer-column">
-                <h4 class="script-heading">Contact</h4>
-                <p>+33 1 42 88 77 66</p>
-                <p>hello@salve.restaurant</p>
-                <p class="sub-info">Reservations recommended</p>
-            </div>
-            <div class="footer-column">
-                <h4 class="script-heading">Follow</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <div class="footer-col">
+                <div class="logo white-logo">
+                    <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+                    <div class="logo-text">The <span>Dinning</span> Table</div>
                 </div>
-                <a href="#reserve" class="btn btn-terracotta btn-sm">Reserve a Table</a>
+                <p>Good food, better company. At The Dinning Table, we create memorable dining experiences with delicious food and a warm ambiance.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li onclick="switchSection('home')">Home</li>
+                    <li onclick="switchSection('menu')">Menu</li>
+                    <li onclick="switchSection('about')">About</li>
+                    <li onclick="switchSection('gallery')">Gallery</li>
+                    <li onclick="switchSection('reservations')">Reservations</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <p>Mon - Fri: 10:00 AM - 10:00 PM</p>
+                <p>Saturday: 10:00 AM - 11:00 PM</p>
+                <p>Sunday: 10:00 AM - 10:00 PM</p>
+            </div>
+            <div class="footer-col">
+                <h4>Our Location</h4>
+                <p>123 Food Street, MG Road, Gwalior, Madhya Pradesh - 474001</p>
+                <button class="btn-yellow-sm" onclick="openDirections()">Get Directions <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
-
-        
-    
-        <div class="feedback-badge">
-            💬 Feedback? We're listening
-        </div>
-
         <div class="footer-bottom">
-            <p>© 2024 SÅLVE — Food that remembers you stays • Privacy Policy • Terms • Instagram</p>
+            <p>© 2026 The Dinning Table. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Sitemap</a>
+            </div>
         </div>
     </footer>
-    <!-- Table Reservation Modal -->
-    <div class="modal-overlay" id="reservationModal" style="display: none;">
-        <div class="dish-modal-content">
-            <button class="close-btn" onclick="closeReservationModal()">&times;</button>
-            <h2 class="modal-title">Reserve a Table</h2>
-            <form onsubmit="submitReservation(event)" style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
-                <input type="text" placeholder="Aapka Naam" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-                <input type="date" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-                <input type="time" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-                <input type="number" placeholder="Kitne log hain? (Guests)" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-                <button type="submit" class="btn btn-terracotta btn-block">Confirm Booking</button>
-            </form>
+
+
+    <div id="directionsModal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>📍 Restaurant Location</h3>
+            <p style="margin: 15px 0; color: #555;">We are located at 123 Food Street, MG Road, Gwalior, MP. Visit us today for an amazing dining experience!</p>
+            <button class="btn-pink" onclick="closeDirections()">Close ✕</button>
         </div>
     </div>
 
-    <!-- Feedback Modal -->
-    <div class="modal-overlay" id="feedbackModal" style="display: none;">
-        <div class="dish-modal-content">
-            <button class="close-btn" onclick="closeFeedbackModal()">&times;</button>
-            <h2 class="modal-title">Your Feedback</h2>
-            <form onsubmit="submitFeedback(event)" style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
-                <input type="text" placeholder="Aapka Naam" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-                <textarea placeholder="Apna experience share karein..." rows="4" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
-                <button type="submit" class="btn btn-terracotta btn-block">Submit Feedback</button>
-            </form>
-        </div>
-    </div>
-    <script src="script.js"></script>
+
+    <div class="toast" id="toastNotification">Action completed! ✨</div>
+
+    <!-- JS Link -->
+    <script src="dining.js"></script>
 </body>
 </html>
-
-    
